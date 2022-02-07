@@ -1,0 +1,1634 @@
+﻿
+@{
+    ViewBag.Title = "home";
+}
+
+<html>
+<head>
+
+    <link href="~/css/supporthome.css" rel="stylesheet" />
+    <link href="~/css/all.css" rel="stylesheet" />
+    <link href="~/css/fontawesome.css" rel="stylesheet" />
+
+</head>
+
+<body onload="veiwprofile()">
+    <div class="container-fluid  heightfull" style="padding:0 !important">
+        <div class="row col-12 heightfull " style="margin-right: 0;padding: 0; margin: 0;">
+
+            <div class="col-3 sidebar heightfull ">
+                <div class="row">
+                    <img src="https://i.ibb.co/xS8HsPZ/Screenshot-22.png" class="profilepic" />
+                </div>
+                <div class="row"><h3 class="name">Mangaya</h3></div>
+                <div class="row profilediv" onclick="veiwprofile()"><h3 class="myprofile">Profile</h3> </div>
+                <div class="row Translationsdiv " onclick="Tranlationveiw()"><h3 class="myprofile">Translations</h3> </div>
+                <div class="row Messagesdiv" onclick="Messenger()"><h3 class="myprofile">Messages</h3> </div>
+                <div class="row logout"><h3 class="myprofile">Logout</h3> </div>
+
+            </div>
+            <div class="col-10 restofpage responsive heightfull">
+                <div class="overall">
+                    @* profile *@
+                    <div class="row profileveiw" style="padding: 0;margin: 0;">
+                        <h3 class="welcom">Welcome <span class="supportName">Name</span> </h3>
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="row inputfrm">
+                                <label class="col-5">Name</label>
+                                <input type="text" placeholder="Name" id="supportName" class="col-6 input-group form-control myinput" />
+                                <div class="col-1">
+                                </div>
+                            </div>
+                            <div class="row inputfrm">
+                                <label class="col-5">Username</label>
+                                <input type="text" placeholder="Username" id="supportUserame" class="col-6 input-group form-control myinput" />
+                                <div class="col-1">
+                                </div>
+                            </div>
+                            <div class="row inputfrm">
+                                <label class="col-5">Passwprd</label>
+                                <input type="password" placeholder="Password" id="supportPassword" class="col-6 input-group form-control myinput" />
+                                <div class="col-1">
+
+                                </div>
+                            </div>
+                            <div class="row inputfrm">
+                                <label class="col-5">Email</label>
+                                <input type="text" placeholder="Email" id="supportEmail" class="col-6 input-group form-control myinput" />
+                                <div class="col-1">
+
+                                </div>
+                            </div>
+                            <div class="row inputfrm">
+                                <label class="col-5">Phone</label>
+                                <input type="text" placeholder="Phone" id="supportPhone" class="col-6 input-group form-control myinput" />
+                                <div class="col-1">
+
+                                </div>
+                            </div>
+                            <div class="row inputfrm">
+                                <div class="col-4"></div>
+                                <input type="button" id="supportEdit" value="Edit Info" onclick="editprofileinfo()" class="col-4 btn btn-danger text-center " style="margin-top: 8%;" />
+                                <div class="col-4"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="row ">
+                                <div class="totaldata col-sm-12"> Total Views</div>
+                            </div>
+                            <div class="row ">
+                                <div class="totaldata col-sm-12" id="totalviews"> 0</div>
+                            </div>
+                            <div class="row ">
+                                <div class="totaldata col-sm-12"> Total Views This Month</div>
+                            </div>
+                            <div class="row ">
+                                <div class="totaldata col-sm-12" id="totalviewsthismonth">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    @* End profile *@
+                    @* Transelations *@
+                    <div class="row translationveiw d-none " style="padding: 0;margin: 0;">
+                        <h3 class="welcom">Welcome <span id="supportName">Name</span> </h3>
+                        <div class="row col-12">
+                            <div class="totaldata col-sm-12" style="margin-bottom: 4%;"> All Manga's </div>
+                        </div>
+                        <div class="row col-12 mangayascontainer" style="margin: 2%;">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-9 offset-3 offset-sm-0 mangayaimg mangaitem d-none" style="height:300px;">
+                            <div class="col-12 row " style="height:100%;padding: 0;">
+                                <img src="~/imgs/2.png" class="responsive" style="height:100%;border: white solid 3px;" />
+                                <i class="fas fa-star rate"><span class="srate">9.1</span></i>
+                                <div class="overallmangaya responsive">
+                                    <div class="row">
+                                        <div class="row col-12" style="height:60%;" onclick="showmanga(this)"></div>
+                                        <button class="btn  btn-danger editbtn" onclick="showmanga(this)">Show Manga</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-12 manganame">
+                                <h4 class="text-center col-12" style="color: white;font-family: cursive;font-weight: 100;font-size: larger;">Managa Name</h4>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    @*End Transelations *@
+                    @* Edit Manga *@
+                    <div class="row editmangaveiw  d-none">
+                        <h3 class="welcom">Welcome  Ahmed </h3>
+                        <div class="row col-12">
+                            <div class="col-12 col-sm-6 col-md-8 col-lg-9 mangadata">
+                                <div class="col-12 edittxt" id="editmangaveiwmanganame">Name /الاسم</div>
+                                <div class="col-12 edittxt" id="editmangaveiwno_chapters">عدد الفصول <span></span> </div>
+                                <div class="col-12 edittxt" id="editmangaveiwcontry">  البلد <span></span>  </div>
+                                <div class="col-12 edittxt" id="editmangaveiwdecription"> الوصف <span style="font-size:large;color: #d8d89c;"></span>  </div>
+                                <div class="col-12 edittxt" id="editmangaveiwcategories">  التصنيفات <span style="font-size:large;color: #d8d89c;"></span> </div>
+
+                            </div>
+                            @* manga item  *@
+                            <div class="col-7 offset-5 offset-sm-1 offset-md-0 col-sm-5 col-md-4 col-lg-3 p-0" style="">
+                                <div class="col-lg-12  mangayaimg p-0" style="height:350px;">
+                                    <div class="col-12 row " style="height:100%;padding: 0;">
+                                        <img src="~/imgs/2.png" id="editmangaveiwimg" class="responsive" style="height:100%;border: white solid 3px;" />
+                                        <i class="fas fa-star rate"><span class="srate" id="editmangaveiwrate">9.1</span></i>
+                                        <div class="overallmangaya responsive">
+                                            <div class="row">
+                                                <div class="row col-12" style="height:60%;"></div>
+                                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @* end  manga item  *@
+                        </div>
+                       
+                        <div class="row col-12">
+                            <div class="row col-12 mangayascontainerinedit " style="margin: 2%;">
+
+
+                            </div>
+                            @*chapter item  *@
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-8 mangayaimg chapter chapteritem d-none" style="overflow: hidden;height: 380px;">
+
+                                <div class="col-12 row " style="height:80%;padding: 0;">
+                                    <img src="~/imgs/2.png" class="responsive" style="height:100%;border: white solid 3px;" />
+                                    <div class="cr cr-top cr-left cr-sticky cr-red chapternumber">الفصل 120</div>
+                                    <i class="fas fa-star rate"><span class="srate">9.1</span></i>
+                                    <div class="overallmangaya responsive">
+                                        <div class="row">
+                                            <div class="row col-12" style="height:60%;" onclick="veiwchapter(this)"></div>
+                                            <button class="btn  btn-danger editbtn" onclick="veiwchapter(this)">Show Chapter</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col-12">
+                                    <h4 class="text-center col-12" style="color: white;font-family: cursive;font-weight: 100;font-size: larger;">Managa Name</h4>
+                                </div>
+
+                            </div>
+                            @* end chapter item  *@
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+                    @* End Edit Manga *@
+                    @* Edit chapter *@
+                    <div class="row editchapterveiw d-none">
+                        <div class="viewchapter row col-12 d-none">
+                            <div class="exit" onclick="exitview()"><span><i class="far fa-window-close"></i></span></div>
+                            <div class="row col-12 fulldata">
+
+                                <div class="manganame col-sm-12 data">Manga Name</div>
+                                <div class="chaptertilte col-sm-12 data"> Chapter Title</div>
+
+                            </div>
+                            <div class="row col-12 slides">
+                            </div>
+
+                        </div>
+                        <img class="row  col-12  heightfull slide1 slide d-none">
+                        <div class="voiceitem d-none" style="margin:auto"><iframe width="300" height="60" src="https://vocaroo.com/embed/kZa5WvLcx11" frameborder="0"></iframe></div>
+
+
+                        <h3 class="welcom">Welcome  Ahmed </h3>
+                        <div class="row col-12">
+                            <div class="col-12 col-sm-5 col-md-6 col-lg-9 chapterdata ">
+                                <div class="col-12 edittxt" id="chaptemanganame">Name /الاسم</div>
+                                <div class="col-12 edittxt">  <span id="chaptertitle"></span> عنوان الفصل  </div>
+                                <div class="col-12 edittxt">  البلد        <span id="chaptercountry"></span>  </div>
+                                <div class="col-12 edittxt">  الوصف        <span id="chapterdescription"></span>  </div>
+                                <div class="col-12 edittxt">  التصنيفات   <span id="chaptercategories"></span> </div>
+
+                            </div>
+                            @* Edit chapter data *@
+                            @* end Edit chapter data *@
+
+                            @* manga item  *@
+                            <div class="col-9 offset-3 offset-sm-0 col-sm-7 col-md-6 col-lg-3" style="">
+                                <div class="col-lg-12  mangayaimg" style="height:350px;">
+
+                                    <div class="col-12 row " style="height:100%;padding: 0;overflow: hidden;">
+                                        <img src="~/imgs/2.png" class="responsive " id="chapterimg" style="height:100%;border: white solid 3px;" />
+                                        <div class="cr cr-top cr-left cr-sticky cr-red" id="chaterno">الفصل 120</div>
+                                        <i class="fas fa-star rate"><span class="srate" id="chapterrate">9.1</span></i>
+                                        <div class="overallmangaya responsive">
+                                            <div class="row">
+                                                <div class="row col-12" style="height:60%;"></div>
+                                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                                <button class="btn  btn-danger deletebtn ReviewChapter" onclick="ReviewChapter(this)">View Chapter</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @* end  manga item  *@
+                        </div>
+                        <div class="row col-12 editbtninchaptersection d-none">
+                            <button class="btn btn-danger col-auto" style="margin-bottom: 4%; margin:auto" onclick="editinfochapter(this)"> Edit info</button>
+                        </div>
+                        <div class="row col-4 offset-4">
+                            <select class="form-control actorsselction"></select>
+                            <option class="actoroption d-none"></option>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="row col-10 offset-1 ">
+                            <table class="table  table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Actor Name</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tr class="Actor_item d-none">
+                                    <th class="text-center"></th>
+                                    <td><input type="text" class="form-control Actor_name" placeholder="Slide Number" disabled /></td>
+                                    <td><button onclick="deleteActor(this)" class="btn deletechlink">Delete</button></td>
+                                </tr>
+                                <tbody class="mytablebodyforactors"></tbody>
+                            </table>
+                        </div>
+
+                        <div class="row col-10 offset-1 ">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Voice Id</th>
+                                        <th scope="col">Slide Number</th>
+                                        <th scope="col">Voice Link</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tr class="slide_voice_item d-none">
+                                    <th class="text-center"></th>
+                                    <td><input type="text" class="form-control slidenumber" placeholder="Slide Number" /></td>
+                                    <td><input type="text" class="form-control slidelink" placeholder="Voice Link " /></td>
+                                    <td><button onclick="Editchaptercontent(this)" class="btn editchlink">Edit</button></td>
+                                    <td><button onclick="deletechaptercontent(this)" class="btn deletechlink">Delete</button></td>
+                                </tr>
+                                <tbody class="mytablebody"></tbody>
+                            </table>
+                            <div class="row col-12 ">
+                                <button class="btn btn-danger col-auto Addnewslide" style="margin-bottom: 4%; margin:auto" onclick="Addnewslide(this)">Add New Slide</button>
+                            </div>
+
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <div class="row col-12 editchaptermain d-none">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <button class="btn btn-danger col-auto Editchapterall" style="margin-bottom: 4%; margin:auto" onclick="Editchapterall(this)">Save Chapter</button>
+                        </div>
+                        <div class="row col-12 editbtninchaptersectiondown">
+                            <button class="btn btn-danger col-auto editchapterdatanew" style="margin-bottom: 4%; margin:auto" onclick="Addnewchapter2(this)">Save Chapter</button>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                    @* end Edit chapter *@
+                    <div class="row Messenger d-none ">
+                        <div class="row col-12">
+                            <div class="col-1"></div>
+                            <div class="col-8 massengercontainer">
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">هلا</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">شو اخبارك</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">تمام وانت </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">انا تمام</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">عامل ايه ف الشغل </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">اهو ماشية وانت </div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">مش قوي بس الحمدلله</div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+
+                                    <div class="sender col-6">
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                    </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">هلا</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">شو اخبارك</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">تمام وانت </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">انا تمام</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">عامل ايه ف الشغل </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">اهو ماشية وانت </div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">مش قوي بس الحمدلله</div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+
+                                    <div class="sender col-6">
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                    </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">هلا</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">شو اخبارك</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">تمام وانت </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">انا تمام</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">عامل ايه ف الشغل </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">اهو ماشية وانت </div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">مش قوي بس الحمدلله</div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+
+                                    <div class="sender col-6">
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                    </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">هلا</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">شو اخبارك</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">تمام وانت </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">انا تمام</div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">عامل ايه ف الشغل </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="col-6"></div>
+                                    <div class="responed col-6">اهو ماشية وانت </div>
+                                    <p class="time">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+                                    <div class="sender col-6">مش قوي بس الحمدلله</div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                                <div class="row col-12 ">
+
+                                    <div class="sender col-6">
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                        ايه رأيك ف الكلام الكتير ده عجبك ولا ايه
+                                    </div>
+                                    <div class="col-6"></div>
+                                    <p class="timesender">2:00 am</p>
+                                </div>
+                            </div>
+                            <div class="col-3 contactcontainer">
+                                <div class="row personpanle">
+                                    @* <img class="col-6 responsive" src="~/imgs/585e4bf3cb11b227491c339a.png" />*@
+                                    <div class="col-12">
+                                        <h5>ahmed Gamal</h5>
+                                        <p class="">  online <i class="fas fa-globe-americas"></i></p>
+                                    </div>
+                                </div>
+                                <div class="row personpanle">
+                                    @* <img class="col-6 responsive" src="~/imgs/585e4bf3cb11b227491c339a.png" />*@
+                                    <div class="col-12">
+                                        <h5>ahmed Gamal</h5>
+                                        <p class="">  online <i class="fas fa-globe-americas"></i></p>
+                                    </div>
+                                </div>
+                                <div class="row personpanle">
+                                    @* <img class="col-6 responsive" src="~/imgs/585e4bf3cb11b227491c339a.png" />*@
+                                    <div class="col-12">
+                                        <h5>ahmed Gamal</h5>
+                                        <p class="">  online <i class="fas fa-globe-americas"></i></p>
+                                    </div>
+                                </div>
+                                <div class="row personpanle chat">
+                                    @* <img class="col-6 responsive" src="~/imgs/585e4bf3cb11b227491c339a.png" />*@
+                                    <div class="col-12">
+                                        <h5>ahmed Gamal</h5>
+                                        <p class="">  online <i class="fas fa-globe-americas"></i></p>
+                                    </div>
+                                </div>
+                                <div class="row personpanle">
+                                    @* <img class="col-6 responsive" src="~/imgs/585e4bf3cb11b227491c339a.png" />*@
+                                    <div class="col-12">
+                                        <h5>ahmed Gamal</h5>
+                                        <p class="">  online <i class="fas fa-globe-americas"></i></p>
+                                    </div>
+                                </div>
+                                <div class="row personpanle">
+                                    @* <img class="col-6 responsive" src="~/imgs/585e4bf3cb11b227491c339a.png" />*@
+                                    <div class="col-12">
+                                        <h5>ahmed Gamal</h5>
+                                        <p class="">  online <i class="fas fa-globe-americas"></i></p>
+                                    </div>
+                                </div>
+                                <div class="row personpanle">
+                                    @* <img class="col-6 responsive" src="~/imgs/585e4bf3cb11b227491c339a.png" />*@
+                                    <div class="col-12">
+                                        <h5>ahmed Gamal</h5>
+                                        <p class="">  online <i class="fas fa-globe-americas"></i></p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="row col-12">
+                            <div class="col-2"></div>
+                            <div class="col-8 inputtext row">
+                                <textarea class="col-8 mytextarea" placeholder="Enter The Message"></textarea>
+                                <div class="col-4 send"><img src="~/imgs/icons8-email-send-96.png" style="width: 70px;height: 110%;" /></div>
+                                <div class="col-4 d-none  sendhover"><img src="~/imgs/icons8-email-send-96 (1).png" style="width: 70px;height: 110%;" /></div>
+                            </div>
+                            <div class="col-3">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/scripts/bootstrap.bundle.js"></script>
+    <script src="~/scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+    <script>
+
+        function sco() {
+            $("body").removeAttr('tabindex');
+            $('.overall').removeAttr('tabindex');
+         
+        }
+
+        var actorsadded=[];
+      function  deleteActor(ele){
+          var id =  $(ele).attr('id');
+          $.ajax({
+              type: 'GET',
+              url: '/Media/deleteactorfromcahpter?chapterid='+chapterid+'&actorid='+id,
+              success: function (response) {
+                  $(ele).parent().parent().remove();
+                    
+              }
+          });
+          sco();
+        }
+        $('.actorsselction').change(function(){
+        
+                        
+            var Name =$(this).children("option:selected").val();
+
+            var id = $(this).children("option:selected").attr('id');
+            if(id !=null)
+            if(!actorsadded.includes(id))
+            { actorsadded.push(id);
+                var person = $('.Actor_item').clone();
+                person.removeClass('Actor_item');
+                person.removeClass('d-none');
+                person.children('th').text(id);
+                person.children('td').children('input').val(Name);
+                person.children('td').children('button').attr('id',id);
+                person.children('td').children('button').addClass("btn-danger");
+                person.children('td').children('button').addClass("btn-block");
+                $('.mytablebodyforactors').append(person);
+                //api 
+                
+                $.ajax({
+                    type: 'GET',
+                    url: '/Media/AddnewActortochapter?chapterid='+chapterid+'&actorid='+id,
+                    success: function (response) {
+                       
+                        sco();
+                    }
+                });
+
+            }
+        });
+        var imgsrc="";
+
+     
+        $('select#category').change(function () {
+            var category = $(this).children("option:selected").val();
+            var datahtml = '<div class = "pickedcategory">' + category +'<i class="fas fa-backspace" onclick="remove(this)"></i></div>';
+            $('.picked').append(datahtml);
+            sco();
+        });
+        function remove(element)
+        {
+            $(element).parent().remove();
+            sco();
+        }
+        function  editprofileinfo(){
+
+            if($('#supportEdit').val()=="Save Info")
+            {
+                $('#supportEdit').val("Edit Info");
+                $('#supportName').attr("disabled", true);
+                $('#supportUserame') .attr("disabled", true);
+                $('#supportPassword') .attr("disabled", true);
+                $('#supportEmail') .attr("disabled", true);
+                $('#supportFirstLanguage') .attr("disabled", true);
+                $('#supportSecondLanguage') .attr("disabled", true);
+                $('#supportPhone') .attr("disabled", true);
+
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/Support/editprofilesupportdata?supportName='+$('#supportName').val()+'&supportUserame='+$('#supportUserame').val()
+                +'&supportPassword='+$('#supportPassword').val()+'&supportEmail='+$('#supportEmail').val()+'&supportFirstLanguage='+$('#supportFirstLanguage').val()+
+                '&supportSecondLanguage='+$('#supportSecondLanguage').val()+'&supportPhone='+$('#supportPhone').val(),
+                    success: function (response) {
+
+                        if(response.code==1)
+                            alert("edited successfuly");
+
+                    }
+                });
+
+            }else{
+
+                $('#supportEdit').val("Save Info");
+                $('#supportName') .attr("disabled", false );
+                $('#supportUserame') .attr("disabled", false);
+                $('#supportPassword') .attr("disabled", false);
+                $('#supportEmail') .attr("disabled", false );
+                $('#supportFirstLanguage') .attr("disabled", false);
+                $('#supportSecondLanguage') .attr("disabled", false);
+                $('#supportPhone') .attr("disabled", false);
+
+            }
+
+            sco();
+        }
+        function Messenger()
+        {
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').addClass('d-none');
+
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').addClass('d-none');
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').removeClass('d-none');
+            $('.Messenger').animate({ opacity: '1' });
+            $('.Messagesdiv h3').css('background-color', 'rgb(86, 33, 39)');
+            $('.Translationsdiv h3').css('background-color ','rgb(76, 13, 20)');
+            $('.profilediv h3').css('background-color', 'rgb(76, 13, 20)');
+
+
+            $('.massengercontainer').stop().animate({
+                scrollTop: $('.massengercontainer')[0].scrollHeight
+            }, 800);
+            $('.contactcontainer').stop().animate({
+                scrollTop: $('.contactcontainer')[0].scrollHeight
+            }, 800);
+
+            $(".massengercontainer").attr('tabeindex','0');
+            $(".contactcontainer").attr('tabeindex','0');
+            $(".massengercontainer").niceScroll({ cursorwidth: '10px', cursorcolor: '#2f2d2566' });
+            $(".contactcontainer").niceScroll({ cursorwidth: '10px', cursorcolor: '#2f2d2566' });
+            //$(".massengercontainer").scrollTop($(".massengercontainer")[0].scrollHeight);
+            //$(".contactcontainer").scrollTop($(".contactcontainer")[0].scrollHeight);
+            sco();
+
+
+        }
+        function showmanga(element) {
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').addClass('d-none');
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').removeClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '1' });
+            $('.Translationsdiv h3').css('background-color', '#562127');
+            $('.profilediv h3').css('background-color', 'rgb(76, 13, 20)');
+            $('.Messagesdiv h3').css('background-color',  'rgb(76, 13, 20)');
+
+            $('.mangadata').removeClass("d-none");
+            $('.editmangadata').addClass("d-none");
+            sco();
+
+            var mangaid= $(element).attr('id');
+            $('#editinfobtn').attr('name',mangaid);
+            getdatatformangaview(mangaid);
+            $('.overall').attr('tabindex',0);
+            sco();
+        }
+        function showmangawithedit(element) {
+
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').addClass('d-none');
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').removeClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '1' });
+            $('.Translationsdiv h3').css('background-color', '#562127');
+            $('.profilediv h3').css('background-color', '#a72222');
+            $('.Messagesdiv h3').css('background-color', '#a72222');
+            $('.editmangadata').removeClass("d-none");
+            $('.mangadata').addClass("d-none");
+            sco();
+            $('#editinfobtn').text("Save");
+            var mangaid= $(element).attr('id');
+            $('#editinfobtn').attr('name',mangaid);
+            getdatatformangaview(mangaid);
+            $('.overall').attr('tabindex',0);
+            sco();
+        }
+        function exitview(){
+            $('.viewchapter').addClass('d-none');
+            $('.slides').empty();
+            $('.overall').attr('tabindex', 0);
+            sco();
+        }
+        function ReviewChapter(element)
+        {
+            /// make a ovarelay and put a image data and
+            $('.viewchapter').removeClass('d-none');
+            //api view chapter
+
+           
+            $.ajax({
+                type: 'GET',
+                url: '/Media/reviewchapter?chapterid='+chapterid,
+                success: function (response) {
+                    $.each(response.result,function(index , item){
+
+                        var voice = $('.voiceitem').clone();
+                        voice.removeClass("d-none");
+                        voice.removeClass("voiceitem");
+                        var voiceurl = item.slidevoice;
+                        voice.children('iframe').attr('src', voiceurl);
+                       
+                        $('.slides').append(voice);
+                        var slide=  $('.slide1').clone();
+                        slide.removeClass('slide1');
+                        slide.removeClass('d-none');
+                        var imageUrl =item.slidecontent;
+                        slide.attr("src", imageUrl );
+                        slide.attr('id',item.slideid);
+                        slide.attr('name',item.slidenumber);
+                        $('.slides').append(slide);
+                      
+
+                    });
+
+                    $('.Player').css("background-color", 'rgba(0,0,0,1)');
+                    $('.manganame').text($('#chaptemanganame').text());
+                    $('.chaptertilte').text($('#chaptertitle').text());
+
+                    $('.overall').attr('tabindex', 0);
+                    sco();
+                }
+            });
+
+        }
+        function Addnewchapter2(elemnt)
+        {
+
+            $('.editchaptermain').addClass("d-none");
+            $('.editbtninchaptersectiondown').removeClass("d-none");
+
+            if($('.editchapterdatanew').text()=="Save Chapter")
+            {
+
+                var data = [];
+                data.push($("#chapternamearbinput").val());
+                data.push($("#chapternameenginput").val());
+                data.push($("#numberofchapterinput").val());
+                data.push($("#chapterateinput").val());
+                data.push(Manga_ID);
+                $('.mytablebody').children().each(function(index){
+                    $(this).children('td').each(function(index){
+                        if( $(this).children("input[type|='text']").val()!=undefined)
+                        {
+                            data.push( $(this).children("input[type|='text']").val());
+
+                        }
+                    });
+
+                });
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/Support/AddnewChapter?supportid='+ @Session["supportid"]+'&Data='+data,
+                    success: function (response) {
+
+                        $('#chaptemanganame').text(response.chaptemanganame);
+                        $('#chaterno').text(response.chaterno+"الفصل ");
+                        $('#chapterrate').text(response.chapterrate);
+                        $('#chaptercategories').text(response.chaptercategories);
+                        $('#chapterdescription').text(response.chapterdescription);
+                        $('#chaptercountry').text(response.chaptercountry);
+                        $('#chaptertitle').text(response.chaptertitle);
+                        $('#chapterimg').attr('src',response.chapterimg);
+
+                        $('.editchapterdata').addClass("d-none");
+                        $('.chapterdata').removeClass("d-none");
+                        $('.mytablebody').empty();
+                        $(response.chapter_contnent).each(function(index,item){
+                            var datahtml = $('.ch_content_item').clone();
+                            datahtml.removeClass('ch_content_item');
+                            datahtml.removeClass('d-none');
+                            datahtml.children('th').text(item.id);
+                            datahtml.children('td').children('.slidenumber').val(item.slidenumber);
+                            datahtml.children('td').children('.slidelink').val(item.sidecontnet);
+                            datahtml.children('td').children('.editchlink').attr('id',item.id);
+                            datahtml.children('td').children('.deletechlink').attr('id',item.id);
+                            $('.mytablebody').append(datahtml);
+                        });
+                        $('.mytablebody tr td button ').addClass("btn-danger");
+                        $('.mytablebody tr td button ').addClass("btn-block");
+                        $('.mytablebody tr td input ').css("color",'white');
+                        $('.mytablebody tr td input ').css("background-color",'rgba(0,0,0,0.7)');
+
+                    }
+                });
+
+                $('.editchapterdatanew').text("Edit Chapter");
+            }else{
+
+                $('.editchapterdatanew').text("Save Chapter");
+                //api edit chapter
+
+                $('.Addnewslide').removeClass('d-none');
+
+            }
+            sco();
+
+        }
+
+        function Addnewslide(elemnt){
+
+            var datahtml = $('.slide_voice_item').clone();
+            datahtml.removeClass('d-none');
+            datahtml.removeClass('slide_voice_item');
+            $('.mytablebody').append(datahtml);
+            $('.mytablebody tr td button ').addClass("btn-danger");
+            $('.mytablebody tr td button ').addClass("btn-block");
+            $('.mytablebody tr td input ').css("color",'white');
+            $('.mytablebody tr td input ').css("background-color", 'rgba(0,0,0,0.7)');
+            sco();
+        }
+        var Manga_ID="";
+        function getdatatformangaview(mangaid)
+        {
+            Manga_ID=mangaid;
+
+            $.ajax({
+                type: 'GET',
+                url: '/Support/editmangaveiw?supportid=' + @Session["supportid"]+'&mangaid='+mangaid,
+                success: function (response) {
+
+                    $('#editmangaveiwmanganame').text(response.editmangaveiwmanganame);
+                    $('#editmangaveiwno_chapters').children('span').text(response.editmangaveiwno_chapters);
+                    $('#editmangaveiwcontry').children('span').text(response.editmangaveiwcontry);
+                    $('#editmangaveiwdecription').children('span').text(response.editmangaveiwdecription);
+                    $('#editmangaveiwcategories').children('span').text(response.editmangaveiwcategories);
+                    $('#editmangaveiwnameENGinput').val(response.editmangaveiwnameENG);
+                    $('#editmangaveiwnameARBinput').val(response.editmangaveiwnameARB);
+                    $('#editmangaveiwrateinput').val(response.editmangaveiwrate);
+                    $('#editmangaveiwno_of_chaptersinput').val(response.editmangaveiwno_chapters);
+                    $('#editmangaveiwcountryinput').val(response.editmangaveiwcontry);
+                    $('#editmangaveiwdecriptioninput').text(response.editmangaveiwdecription);
+                    $('#editmangaveiwprofilepicinput').val(response.editmangaveiwimg);
+                    imgsrc=response.editmangaveiwimg;
+                    $('.picked').empty();
+                    $.each(response.categorylist, function (index, categoryitem) {
+                        var datahtml = '<div class = "pickedcategory">' + categoryitem +'<i class="fas fa-backspace" onclick="remove(this)"></i></div>';
+                        $('.picked').append(datahtml);
+                    });
+
+
+                    //editmangaveiwrate
+                    //editmangaveiwimg ++++we need to add id in th delete btn
+
+                    $('#editmangaveiwrate').text(response.editmangaveiwrate);
+                    $('#editmangaveiwimg').attr('src',response.editmangaveiwimg);
+                    ////chapters data
+                    $('.mangayascontainerinedit').empty();
+                    var itemplus=$('.plusitem').clone();
+                    itemplus.removeClass('d-none');
+                    $('.mangayascontainerinedit').append(itemplus);
+                    $.each(response.chapters, function (index, chapteritem) {
+                        var chapter = $('.chapteritem').clone();
+                        chapter.removeClass('chapteritem');
+                        chapter.removeClass('d-none');
+                        chapter.children('div').children('img').attr('src',response.editmangaveiwimg);
+                        chapter.children('div').children('.chapternumber').text("الفصل " +chapteritem.chapternumber);
+                        chapter.children('div').children('i').children('span').text(chapteritem.chapterarte);
+                        chapter.children('div').children('div').children('div').children('div').attr('id',chapteritem.chapterid);
+                        chapter.children('div').children('div').children('div').children('button').attr('id',chapteritem.chapterid);
+                        chapter.children('div').children('h4').text(chapteritem.chaptername)
+                        $('.mangayascontainerinedit').append(chapter);
+                    });
+                    $('#category').empty();
+                    $.each(response.categoryoption, function (index, cat) {
+
+                        $('#category').append('<option id= "'+cat.id+'">'+cat.type+'</optin');
+
+                    });
+
+                }
+            });
+            sco();
+        }
+        function deletemangaya(element)
+        {
+
+            $(element).parent().parent().parent().parent().remove();
+
+            ///api delete elemet
+            var mangaid = $(element).attr('id');
+            $.ajax({
+                type: 'GET',
+                url: '/Support/deletemanga?supportid=' + @Session["supportid"]+'&mangaid='+mangaid,
+                success: function (response) {
+
+
+                    alert("deleted successfuly");
+                }
+            });
+            sco();
+        }
+
+        function addnewmanga() {
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').addClass('d-none');
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').removeClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '1' });
+            $('.Translationsdiv h3').css('background-color', '#562127');
+            $('.profilediv h3').css('background-color', 'rgb(76, 13, 20);');
+            $('.Messagesdiv h3').css('background-color', 'rgb(76, 13, 20);');
+
+            $('.editmangadata').removeClass("d-none");
+            $('.mangadata').addClass("d-none");
+
+            $('#editinfobtn').text("Save");
+            $('#editinfobtn').attr('name','New');
+            $('#editmangaveiwimg').attr('src','https://digistatement.com/wp-content/uploads/2019/12/shueisha-manga-plus-1155829-1280x0-1-e1576827590288.jpeg');
+            $('#editmangaveiwrate').text("0.0");
+            $('.picked').empty();
+            $('#editmangaveiwnameENGinput').val("");
+            $('#editmangaveiwnameARBinput').val("");
+            $('#editmangaveiwrateinput').val("");
+            $('#editmangaveiwno_of_chaptersinput').val("");
+            $('#editmangaveiwcountryinput').val("");
+            $('#editmangaveiwprofilepicinput').val("");
+            $('#editmangaveiwdecriptioninput').val("");
+            $('.mangayascontainerinedit').empty();
+            var itemplus=$('.plusitem').clone();
+            itemplus.removeClass('d-none');
+            $('.mangayascontainerinedit').append(itemplus);
+
+            $('.overall').attr('tabindex',0);
+            sco();
+
+        }
+        function editmangainfo(element) {
+            if ($(element).text() == "Save")
+            {
+                $('.mangadata').removeClass("d-none");
+                $('.editmangadata').addClass("d-none");
+                $(element).text("Edit Info")
+                /// api edit info here
+                var cats=[];
+                var mangaid=  $(element).attr('name');
+                cats.push(mangaid);
+                cats.push($('#editmangaveiwnameENGinput').val());
+                cats.push($('#editmangaveiwnameARBinput').val());
+                cats.push($('#editmangaveiwrateinput').val());
+                cats.push($('#editmangaveiwno_of_chaptersinput').val());
+                cats.push($('#editmangaveiwcountryinput').val());
+                cats.push($('#editmangaveiwprofilepicinput').val());
+                cats.push($('#editmangaveiwdecriptioninput').val());
+                $('.pickedcategory').each(function( index ) {
+                    cats.push($(this).text());
+                });
+
+                if($('#editinfobtn').attr('name')=="New")
+                {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Support/AddnewManaga?supportid=' + @Session["supportid"]+'&editdata='+cats,
+                        success: function (response) {
+
+                            var name=  $('#editmangaveiwnameENGinput').val()+"/"+ $('#editmangaveiwnameARBinput').val() ;
+                            $('#editmangaveiwmanganame').text(name);
+                            $('#editmangaveiwimg').attr('src', $('#editmangaveiwprofilepicinput').val());
+                            var ca=[];
+                            $('.pickedcategory').each(function( index ) {
+                                ca.push($(this).text());
+                            });
+                            $('#editmangaveiwcategories').children('span').text(ca);
+                            $('#editmangaveiwdecription').children('span').text($('#editmangaveiwdecriptioninput').val());
+                            $('#editmangaveiwcontry').children('span').text($('#editmangaveiwcountryinput').val());
+                            $('#editmangaveiwno_chapters').children('span').text($('#editmangaveiwno_of_chaptersinput').val());
+                            $('#editmangaveiwrate').text($('#editmangaveiwrateinput').val());
+
+                        }
+                    });
+
+                }else{
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Support/updatemangainfo?supportid=' + @Session["supportid"]+'&editdata='+cats,
+                        success: function (response) {
+
+                            var name=  $('#editmangaveiwnameENGinput').val()+"/"+ $('#editmangaveiwnameARBinput').val() ;
+                            $('#editmangaveiwmanganame').text(name);
+                            $('#editmangaveiwimg').attr('src', $('#editmangaveiwprofilepicinput').val());
+                            var ca=[];
+                            $('.pickedcategory').each(function( index ) {
+                                ca.push($(this).text());
+                            });
+                            $('#editmangaveiwcategories').children('span').text(ca);
+                            $('#editmangaveiwdecription').children('span').text($('#editmangaveiwdecriptioninput').val());
+                            $('#editmangaveiwcontry').children('span').text($('#editmangaveiwcountryinput').val());
+                            $('#editmangaveiwno_chapters').children('span').text($('#editmangaveiwno_of_chaptersinput').val());
+                            $('#editmangaveiwrate').text($('#editmangaveiwrateinput').val());
+
+                        }
+                    });
+                }
+
+            } else {
+
+                $('.editmangadata').removeClass("d-none");
+                $('.mangadata').addClass("d-none");
+                $(element).text("Save");
+            }
+            sco();
+        }
+        var chapterid;
+        function veiwchapter(elemnt) {
+            $('.overall').scrollTop(0);
+
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').removeClass('d-none');
+            $('.editchapterveiw').animate({ opacity: '1' });
+            $('.Translationsdiv h3').css('background-color',  '#562127');
+            $('.profilediv h3').css('background-color',      'rgb(76, 13, 20)');
+            $('.Messagesdiv h3').css('background-color',     'rgb(76, 13, 20)');
+
+            $('.chapterdata').removeClass("d-none");
+            $('.editchapterdata').addClass("d-none");
+            $('.editchaptermain').addClass("d-none");
+            // api view chapter
+           chapterid= $(elemnt).attr('id');
+
+          $.ajax({
+              type: 'GET',
+              url: '/Media/viewchapter?chapterid='+chapterid,
+              success: function (response) {
+                  $('.mytablebodyforactors').empty();
+                  $('.actorsselction').empty();
+                  var hh='<option>إضافة ممثل جديد</option>';
+                  $('.actorsselction').append(hh);
+                  $(response.allactors).each(function(index,item){
+                      var option =$('.actoroption').clone();
+                      option.attr('id',item.Actorid);
+                      option.text(item.ActorName);
+                      option.removeClass('actoroption');
+                      option.removeClass('d-none');
+                      $('.actorsselction').append(option);
+                  });
+                  $(response.ActualActors).each(function(index,item){ 
+                      var person = $('.Actor_item').clone();
+                      person.removeClass('Actor_item');
+                      person.removeClass('d-none');
+                      person.children('th').text(item.Actorid);                      
+                      person.children('td').children('input').val(item.ActorName);
+                      person.children('td').children('button').attr('id',item.Actorid);
+                      person.children('td').children('button').addClass("btn-danger");
+                      person.children('td').children('button').addClass("btn-block");
+                      $('.mytablebodyforactors').append(person);
+                      actorsadded.push(item.Actorid.toString(10));
+                  });
+                  
+
+                  $('#chaptemanganame').text(response.chaptemanganame);
+                  $('#chaterno').text(response.chaterno+"الفصل ");
+                  $('#chapterrate').text(response.chapterrate);
+                  $('#chaptercategories').text(response.chaptercategories);
+                  $('#chapterdescription').text(response.chapterdescription);
+                  $('#chaptercountry').text(response.chaptercountry);
+                  $('#chaptertitle').text(response.chaptertitle);
+                  $('#chapterimg').attr('src',response.chapterimg);
+                  $('.editchapterdata').addClass("d-none");
+                  $('.chapterdata').removeClass("d-none");
+                  $('.mytablebody').empty();
+                  $(response.chapter_contnent).each(function(index,item){
+                      var datahtml = $('.slide_voice_item').clone();
+                      datahtml.removeClass('slide_voice_item');
+                      datahtml.removeClass('d-none');
+                      datahtml.children('th').text(item.id);
+                      datahtml.children('td').children('.slidenumber').val(item.slidenumber);
+                      datahtml.children('td').children('.slidenumber').attr('disabled','true');
+                      datahtml.children('td').children('.slidelink').attr('disabled','true');
+                      datahtml.children('td').children('.slidelink').val(item.sidecontnet);
+                      datahtml.children('td').children('.editchlink').attr('id',item.id);
+                      datahtml.children('td').children('.deletechlink').attr('id',item.id);
+                      $('.mytablebody').append(datahtml);
+                  });
+                  $('.ReviewChapter').attr('id',chapterid)
+                  $('.mytablebody tr td button ').addClass("btn-danger");
+                  $('.mytablebody tr td button ').addClass("btn-block");
+                  $('.mytablebody tr td input ').css("color",'white');
+                  $('.mytablebody tr td input ').css("background-color",'rgba(0,0,0,0.7)');
+                  $('.Editchapterall').text("Edit Chapter");
+                  $('.Addnewslide').addClass('d-none');
+                  $('.editchapterdatanew').addClass('d-none')
+                  $('.editchaptermain').removeClass('d-none');
+                  $('#chapternamearbinput').val(response.chapterNameARB);
+                  $('#chapternameenginput').val(response.chapterNameENG);
+                  $('#numberofchapterinput').val(response.chaterno);
+                  $('#chapterateinput').val(response.chapterrate);
+
+              }
+          });
+
+
+            sco();
+
+        }
+
+
+        function deletechaptercontent(elemnt){
+
+            var data = [];
+            data.push( $(elemnt).parent().siblings('th').text());
+            $.ajax({
+                type: 'GET',
+                url: '/Media/deletechaptervoicelink?editdata='+data,
+                success: function (response) {
+
+                    $(elemnt).parent().parent().remove();
+
+                }
+            });
+            sco();
+        }
+        function Editchaptercontent(elemnt)
+        {
+            if( $(elemnt).text()=="Edit"){
+
+                $(elemnt).parent().siblings().each(function (index,item){
+                    $(item).children('input').removeAttr('disabled');
+                });
+                $(elemnt).text("Save");
+
+            }else{
+
+                $(elemnt).text("Edit");
+                $(elemnt).parent().siblings().each(function (index,item){
+                    $(item).children('input').attr('disabled','true');
+                });
+                var data = [];
+                data.push( $(elemnt).parent().siblings('th').text());
+                $(elemnt).parent().siblings('td').children('input').each(function (index,item){
+                    data.push($(item).val());
+                });
+                //api edit chaptercontnet
+                $.ajax({
+                    type: 'GET',
+                    url: '/Media/editchaptervoicelink?editdata='+data,
+                    success: function (response) {
+
+
+
+                    }
+                });
+
+
+
+            }
+
+
+            sco();
+        }
+
+        function Editchapterall(element)
+        {
+
+            if($(element).text()=="Edit Chapter")
+            {
+                $(element).text("Save Chapter");
+                $('.Addnewslide').removeClass('d-none');
+              
+            }
+            else{
+                var data = [];
+                data.push(Manga_ID);
+                data.push(chapterid);
+                $('.mytablebody').children().each(function(index){
+                    data.push($(this).children('th').text());
+                    $(this).children('td').each(function(index){
+                        if( $(this).children("input[type|='text']").val()!=undefined)
+                        {
+                            data.push( $(this).children("input[type|='text']").val());
+                        }
+                    });
+
+                });
+                //api edit data
+                $.ajax({
+                    type: 'GET',
+                    url: '/Media/editchaptervoices?Data='+data,
+                    success: function (response) {
+
+                       
+                        $('#chaptemanganame').text(response.chaptemanganame);
+                        $('#chaterno').text(response.chaterno+"الفصل ");
+                        $('#chapterrate').text(response.chapterrate);
+                        $('#chaptercategories').text(response.chaptercategories);
+                        $('#chapterdescription').text(response.chapterdescription);
+                        $('#chaptercountry').text(response.chaptercountry);
+                        $('#chaptertitle').text(response.chaptertitle);
+                        $('#chapterimg').attr('src',response.chapterimg);
+                        $('.editchapterdata').addClass("d-none");
+                        $('.chapterdata').removeClass("d-none");
+                        $('.mytablebody').empty();
+                        $(response.chapter_contnent).each(function(index,item){
+                            var datahtml = $('.slide_voice_item').clone();
+                            datahtml.removeClass('slide_voice_item');
+                            datahtml.removeClass('d-none');
+                            datahtml.children('th').text(item.id);
+                            datahtml.children('td').children('.slidenumber').val(item.slidenumber);
+                            datahtml.children('td').children('.slidenumber').attr('disabled','true');
+                            datahtml.children('td').children('.slidelink').attr('disabled','true');
+                            datahtml.children('td').children('.slidelink').val(item.voicelink);
+                            datahtml.children('td').children('.editchlink').attr('id',item.id);
+                            datahtml.children('td').children('.deletechlink').attr('id',item.id);
+                            $('.mytablebody').append(datahtml);
+                        });
+                        $('.mytablebody tr td button ').addClass("btn-danger");
+                        $('.mytablebody tr td button ').addClass("btn-block");
+                        $('.mytablebody tr td input ').css("color",'white');
+                        $('.mytablebody tr td input ').css("background-color",'rgba(0,0,0,0.7)');
+                        $('.Editchapterall').text("Edit Chapter");
+                        $('.Addnewslide').addClass('d-none');
+                        $('#chapternamearbinput').val(response.chapterNameARB);
+                        $('#chapternameenginput').val(response.chapterNameENG);
+                        $('#numberofchapterinput').val(response.chaterno);
+                        $('#chapterateinput').val(response.chapterrate);
+
+                    }
+                });
+
+            }
+            sco();
+        }
+        function viewchapterapi(response)
+        {
+
+            $('#chaptemanganame').text(response.chaptemanganame);
+            $('#chaterno').text(response.chaterno+"الفصل ");
+            $('#chapterrate').text(response.chapterrate);
+            $('#chaptercategories').text(response.chaptercategories);
+            $('#chapterdescription').text(response.chapterdescription);
+            $('#chaptercountry').text(response.chaptercountry);
+            $('#chaptertitle').text(response.chaptertitle);
+            $('#chapterimg').attr('src',response.chapterimg);
+            $('.editchapterdata').addClass("d-none");
+            $('.chapterdata').removeClass("d-none");
+            $('.mytablebody').empty();
+            $(response.chapter_contnent).each(function(index,item){
+                var datahtml = $('.ch_content_item').clone();
+                datahtml.removeClass('ch_content_item');
+                datahtml.removeClass('d-none');
+                datahtml.children('th').text(item.id);
+                datahtml.children('td').children('.slidenumber').val(item.slidenumber);
+                datahtml.children('td').children('.slidenumber').attr('disabled','true');
+                datahtml.children('td').children('.slidelink').attr('disabled','true');
+                datahtml.children('td').children('.slidelink').val(item.sidecontnet);
+                datahtml.children('td').children('.editchlink').attr('id',item.id);
+                datahtml.children('td').children('.deletechlink').attr('id',item.id);
+                $('.mytablebody').append(datahtml);
+            });
+            $('.mytablebody tr td button ').addClass("btn-danger");
+            $('.mytablebody tr td button ').addClass("btn-block");
+            $('.mytablebody tr td input ').css("color",'white');
+            $('.mytablebody tr td input ').css("background-color",'rgba(0,0,0,0.7)');
+            $('.Editchapterall').text("Edit Chapter");
+            $('.Addnewslide').addClass('d-none');
+            $('#chapternamearbinput').val(response.chapterNameARB);
+            $('#chapternameenginput').val(response.chapterNameENG);
+            $('#numberofchapterinput').val(response.chaterno);
+            $('#chapterateinput').val(response.chapterrate);
+            sco();
+        }
+        function editchapter(element) {
+
+            $('.overall').scrollTop(0);
+
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').removeClass('d-none');
+            $('.editchapterveiw').animate({ opacity: '1' });
+            $('.Translationsdiv h3').css('background-color',  '#562127');
+            $('.profilediv h3').css('background-color',      'rgb(76, 13, 20)');
+            $('.Messagesdiv h3').css('background-color',     'rgb(76, 13, 20)');
+            $('.Editchapterall').attr('id',$(element).attr('id'));
+            $('.chapterdata').removeClass("d-none");
+            $('.editchapterdata').addClass("d-none");
+            $('.editchaptermain').addClass("d-none");
+            // api view chapter
+            var chapterid=$(element).attr('id');
+
+            $('.ReviewChapter').attr('id',chapterid)
+            $.ajax({
+                type: 'GET',
+                url: '/Support/viewchapter?supportid=' + @Session["supportid"]+'&chapterid='+chapterid,
+                success: function (response) {
+                    $('#chaptemanganame').text(response.chaptemanganame);
+                    $('#chaterno').text(response.chaterno+"الفصل ");
+                    $('#chapterrate').text(response.chapterrate);
+                    $('#chaptercategories').text(response.chaptercategories);
+                    $('#chapterdescription').text(response.chapterdescription);
+                    $('#chaptercountry').text(response.chaptercountry);
+                    $('#chaptertitle').text(response.chaptertitle);
+                    $('#chapterimg').attr('src',response.chapterimg);
+                    $('.editchapterdata').addClass("d-none");
+                    $('.chapterdata').removeClass("d-none");
+                    $('.mytablebody').empty();
+                    $(response.chapter_contnent).each(function(index,item){
+                        var datahtml = $('.ch_content_item').clone();
+                        datahtml.removeClass('ch_content_item');
+                        datahtml.removeClass('d-none');
+                        datahtml.children('th').text(item.id);
+                        datahtml.children('td').children('.slidenumber').val(item.slidenumber);
+                        datahtml.children('td').children('.slidenumber').attr('disabled','true');
+                        datahtml.children('td').children('.slidelink').attr('disabled','true');
+                        datahtml.children('td').children('.slidelink').val(item.sidecontnet);
+                        datahtml.children('td').children('.editchlink').attr('id',item.id);
+                        datahtml.children('td').children('.deletechlink').attr('id',item.id);
+                        $('.mytablebody').append(datahtml);
+                    });
+                    $('.mytablebody tr td button ').addClass("btn-danger");
+                    $('.mytablebody tr td button ').addClass("btn-block");
+                    $('.mytablebody tr td input ').css("color",'white');
+                    $('.mytablebody tr td input ').css("background-color",'rgba(0,0,0,0.7)');
+                    $('.Editchapterall').text("Edit Chapter");
+                    $('.Addnewslide').addClass('d-none');
+                    $('.editchapterdatanew').addClass('d-none')
+                    $('.editchaptermain').removeClass('d-none');
+                    $('#chapternamearbinput').val(response.chapterNameARB);
+                    $('#chapternameenginput').val(response.chapterNameENG);
+                    $('#numberofchapterinput').val(response.chaterno);
+                    $('#chapterateinput').val(response.chapterrate);
+                    $('.overall').scrollTop(0);
+                    $('.Addnewslide').removeClass('d-none');
+                    $('.chapterdata').addClass('d-none');
+                    $('.editchapterdata').removeClass('d-none');
+                    $('.editbtninchaptersectiondown').addClass('d-none');
+                    $('.Editchapterall').removeClass('d-none');
+
+                }
+            });
+            sco();
+
+
+        }
+        function editinfochapter(element) {
+
+            if ($(element).text() == "Save") {
+                $('.chapterdata').removeClass("d-none");
+                $('.editchapterdata').addClass("d-none");
+                $(element).text("Edit Info")
+            } else {
+
+                $('.editchapterdata').removeClass("d-none");
+                $('.chapterdata').addClass("d-none");
+                $(element).text("Save");
+            }
+            sco();
+        }
+        function deletechapter(element)
+        {
+
+
+            var id = $(element).attr('id');
+            $.ajax({
+                type: 'GET',
+                url: '/Support/deletechapter?chapterid=' +id,
+                success: function (response) {
+
+                    $(element).parent().parent().parent().parent().remove();
+                }
+            });
+            sco();
+        }
+        function Addnewchapter() {
+            $('.overall').scrollTop(0);
+
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').removeClass('d-none');
+            $('.editchapterveiw').animate({ opacity: '1' });
+            $('.Translationsdiv h3').css('background-color',  '#562127');
+            $('.profilediv h3').css('background-color',      'rgb(76, 13, 20)');
+            $('.Messagesdiv h3').css('background-color',     'rgb(76, 13, 20)');
+
+            $('.editchapterdata').removeClass("d-none");
+            $('.chapterdata').addClass("d-none");
+            $('.mytablebody').empty();
+            sco();
+
+
+            $('#chapterimg').attr('src',imgsrc);
+            $("#chaterno").text("الفصل 0");
+            $("#chapterrate").text("0.0");
+
+            $('#chapternamearbinput').val("");
+            $('#chapternameenginput').val("");
+            $('#numberofchapterinput').val("");
+            $('#chapterateinput').val("");
+
+            sco();
+        }
+        $('.send').mousemove(function () {
+            $('.send').addClass("d-none");
+            $('.sendhover').removeClass("d-none");
+            sco();
+        });
+        $('.sendhover').mouseout(function () {
+            $('.sendhover').addClass("d-none");
+            $('.send').removeClass("d-none");
+            sco();
+        });
+        function veiwprofile()
+        {
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').addClass('d-none');
+
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').removeClass('d-none');
+            $('.profileveiw').animate({ opacity: '1' } );
+            $('.profilediv h3').css('background-color',        '#562127');
+            $('.Translationsdiv h3').css('background-color',  'rgb(76, 13, 20)');
+            $('.Messagesdiv h3').css('background-color',      'rgb(76, 13, 20)');
+            sco();
+            $.ajax({
+                type: 'GET',
+                url: '/Support/profiledata?supportid=' + @Session["supportid"],
+                success: function (response) {
+
+                    $('#supportName').val(response.supportName);
+                    $('#supportUserame').val(response.supportUserame);
+                    $('#supportPassword').val(response.supportPassword);
+                    $('#supportEmail').val(response.supportEmail);
+                     $('#supportPhone').val(response.supportPhone);
+                    $('#totalviews').text(response.totalviews);
+                    $('#totalviewsthismonth').text(response.totalviewsthismonth);
+
+                }
+            });
+            $('#supportName') .attr("disabled", true);
+            $('#supportUserame') .attr("disabled", true);
+            $('#supportPassword') .attr("disabled", true);
+            $('#supportEmail') .attr("disabled", true);
+            $('#supportFirstLanguage') .attr("disabled", true);
+            $('#supportSecondLanguage') .attr("disabled", true);
+            $('#supportPhone') .attr("disabled", true);
+
+            sco();
+        }
+
+        function Tranlationveiw() {
+            $('.editchapterveiw').animate({ opacity: '0' });
+            $('.editchapterveiw').addClass('d-none');
+
+            $('.profileveiw').animate({ opacity: '0' });
+            $('.profileveiw').addClass('d-none');
+            $('.editmangaveiw').animate({ opacity: '0' });
+            $('.editmangaveiw').addClass('d-none');
+            $('.Messenger').animate({ opacity: '0' });
+            $('.Messenger').addClass('d-none');
+            $('.translationveiw').animate({ opacity: '0' });
+            $('.translationveiw').removeClass('d-none');
+            $('.translationveiw').animate({ opacity: '1' });
+            $('.Translationsdiv h3').css('background-color',  '#562127');
+            $('.profilediv h3').css('background-color',      'rgb(76, 13, 20)');
+            $('.Messagesdiv h3').css('background-color',     'rgb(76, 13, 20)');
+            sco();
+            $('.mangayascontainer').empty();
+            //api here
+            $.ajax({
+                type: 'GET',
+                url: '/Media/ShowAllMangas?supportid=' + @Session["supportid"],
+                success: function (response) {
+                    $.each(response, function (index, manga) {
+
+                        var item =  $('.mangaitem').clone();
+                        item.attr('id',manga.mangaid);
+                        item.removeClass("mangaitem");
+                        item.removeClass("d-none");
+                        item.children('div').children('img').attr('src',manga.mangaimg);
+                        item.children('div').children('i').children('span').text(manga.mangarate);
+                        item.children('div').children('div').children('div').children('div').attr('id',manga.mangaid);
+                        item.children('div').children('div').children('div').children('.editbtn').attr('id',manga.mangaid);
+                        item.children('div').children('div').children('div').children('.deletebtn').attr('id',manga.mangaid);
+                        item.children('.manganame').children('h4').text(manga.manganameENG);
+                        $('.mangayascontainer').append(item);
+                    });
+                }
+            });
+            sco();
+        }
+    </script>
+</body>
+
+</html>
+

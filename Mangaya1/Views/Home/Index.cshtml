@@ -1,0 +1,280 @@
+﻿
+@{
+    ViewBag.Title = "home";
+}
+
+<html>
+<head>
+
+    <link href="~/css/all.css" rel="stylesheet" />
+    <link href="~/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/css/supporthome.css" rel="stylesheet" />
+    <link href="~/css/home_index.css" rel="stylesheet" />
+    <style>
+        .best {
+            text-align: center;
+            font-size: xx-large;
+            font-family: cursive;
+            /* margin-top: 25px; */
+            margin-bottom: -20px;
+            background: linear-gradient(90deg, rgba(255, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
+            color: wheat;
+            width: 23%;
+            margin: 25px auto;
+            border-radius: 42px;
+            margin-bottom: -18px;
+        }
+    </style>
+</head>
+
+<body onload="veiwprofile()">
+
+    <div class="container-fluid">
+        <!-- start Nav bar</!-->
+        <div class="nvbar row">
+            <div class="overlay row">
+                <div class="row col-12" style="height: 88px;">
+                    <div class="search  col-6 ">
+                        <div class="searchcon">
+                            <input type="text" placeholder="أكتب اسم المانجا هنا" class="searchtxt col-10 col-sm-8 col-md-7 " />
+                            <input type="button" value="بحث" class="btnsearch" />
+                        </div>
+                    </div>
+                    <div class="logo col-6 row">
+                        <div class="l1 col-9">
+                            <h1 class="logoeng "></h1>
+                            <h1 class="logoarb "></h1>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row col-12 linkscontainer">
+                    <div class="col-4 btncontaner">
+                        <input type="button" class="login_registration_btn btn registration " value="إنشاء حساب" />
+                        <input type="button" class="login_registration_btn btn login" value="تسجيل دخول" />
+                    </div>
+                    <div class="col-8 ">
+                        <div class="col-12 row">
+                            <div class="links"><a href="/home/contactus" style="text-decoration:none;"> تواصل معنا</a> </div>
+                            <div class="links"><a href="/home/contactus" style="text-decoration:none;"> المضافة حديثا</a> </div>
+                            <div class="links"><a href="/home/mangalist" style="text-decoration:none;"> قائمة المانجا </a> </div>
+                            <div class="links"><a href="/home/index" style="text-decoration:none;">  الرئيسية</a> </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="l2 col-3 ">
+                    <div class="row"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end Nav bar</!-->
+        <!-- start best mangas slider</!-->
+        <br />
+
+        <div class="best">المانجا الأكثر مشاهدة</div>
+        <br />
+
+        <div class="top-content">
+            <div class="container-fluid">
+                <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                            <img src="https://a.wattpad.com/cover/38475857-352-k188366.jpg" class="img-fluid mx-auto d-block" alt="img1">
+                            <h4 class="text-center">text name 1</h4>
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" alt="img2">
+                            <h4 class="text-center">text name 2</h4>
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="https://a.wattpad.com/cover/38475857-352-k188366.jpg" class="img-fluid mx-auto d-block" alt="img3">
+                            <h4 class="text-center">text name 3</h4>
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" alt="img4">
+                            <h4 class="text-center">text name 4</h4>
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="https://a.wattpad.com/cover/38475857-352-k188366.jpg" class="img-fluid mx-auto d-block" alt="img5">
+                            <h4 class="text-center">text name 5</h4>
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" alt="img6">
+                            <h4 class="text-center">text name 6 </h4>
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="https://a.wattpad.com/cover/38475857-352-k188366.jpg" class="img-fluid mx-auto d-block" alt="img7">
+                            <h4 class="text-center">text name 7</h4>
+                        </div>
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                            <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" alt="img8">
+                            <h4 class="text-center">text name 8</h4>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end best mangas slider</!-->
+        <!-- start added newly</!-->
+        <br />
+        <div class="best">الفصول المضافة حديثا  </div>
+        <br />
+        <br />
+        <br />
+
+        <div class="newlyadded row col-12">
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
+                <div class="col-lg-12  mangayaimg" style="height:350px;">
+
+                    <div class="col-12 row " style="height:100%;padding: 0;overflow: hidden;">
+                        <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" id="chapterimg" style="height:100%;border: black solid 3px;" />
+                        <div class="cr cr-top cr-left cr-sticky cr-red" id="chaterno">الفصل 120</div>
+                        <i class="fas fa-star rate"><span class="srate" id="chapterrate">9.1</span></i>
+                        <div class="overallmangaya responsive">
+                            <div class="row">
+                                <div class="row col-12" style="height:60%;"></div>
+                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                <button class="btn  btn-danger deletebtn ReviewChapter" onclick="ReviewChapter(this)">View Chapter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
+                <div class="col-lg-12  mangayaimg" style="height:350px;">
+
+                    <div class="col-12 row " style="height:100%;padding: 0;overflow: hidden;">
+                        <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" id="chapterimg" style="height:100%;border: black solid 3px;" />
+                        <div class="cr cr-top cr-left cr-sticky cr-red" id="chaterno">الفصل 120</div>
+                        <i class="fas fa-star rate"><span class="srate" id="chapterrate">9.1</span></i>
+                        <div class="overallmangaya responsive">
+                            <div class="row">
+                                <div class="row col-12" style="height:60%;"></div>
+                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                <button class="btn  btn-danger deletebtn ReviewChapter" onclick="ReviewChapter(this)">View Chapter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
+                <div class="col-lg-12  mangayaimg" style="height:350px;">
+
+                    <div class="col-12 row " style="height:100%;padding: 0;overflow: hidden;">
+                        <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" id="chapterimg" style="height:100%;border: black solid 3px;" />
+                        <div class="cr cr-top cr-left cr-sticky cr-red" id="chaterno">الفصل 120</div>
+                        <i class="fas fa-star rate"><span class="srate" id="chapterrate">9.1</span></i>
+                        <div class="overallmangaya responsive">
+                            <div class="row">
+                                <div class="row col-12" style="height:60%;"></div>
+                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                <button class="btn  btn-danger deletebtn ReviewChapter" onclick="ReviewChapter(this)">View Chapter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
+                <div class="col-lg-12  mangayaimg" style="height:350px;">
+
+                    <div class="col-12 row " style="height:100%;padding: 0;overflow: hidden;">
+                        <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" id="chapterimg" style="height:100%;border: black solid 3px;" />
+                        <div class="cr cr-top cr-left cr-sticky cr-red" id="chaterno">الفصل 120</div>
+                        <i class="fas fa-star rate"><span class="srate" id="chapterrate">9.1</span></i>
+                        <div class="overallmangaya responsive">
+                            <div class="row">
+                                <div class="row col-12" style="height:60%;"></div>
+                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                <button class="btn  btn-danger deletebtn ReviewChapter" onclick="ReviewChapter(this)">View Chapter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
+                <div class="col-lg-12  mangayaimg" style="height:350px;">
+
+                    <div class="col-12 row " style="height:100%;padding: 0;overflow: hidden;">
+                        <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" id="chapterimg" style="height:100%;border: black solid 3px;" />
+                        <div class="cr cr-top cr-left cr-sticky cr-red" id="chaterno">الفصل 120</div>
+                        <i class="fas fa-star rate"><span class="srate" id="chapterrate">9.1</span></i>
+                        <div class="overallmangaya responsive">
+                            <div class="row">
+                                <div class="row col-12" style="height:60%;"></div>
+                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                <button class="btn  btn-danger deletebtn ReviewChapter" onclick="ReviewChapter(this)">View Chapter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="">
+                <div class="col-lg-12  mangayaimg" style="height:350px;">
+
+                    <div class="col-12 row " style="height:100%;padding: 0;overflow: hidden;">
+                        <img src="https://i.pinimg.com/736x/f7/23/10/f72310b21418359a9c7e3922fbafb4a5.jpg" class="img-fluid mx-auto d-block" id="chapterimg" style="height:100%;border: black solid 3px;" />
+                        <div class="cr cr-top cr-left cr-sticky cr-red" id="chaterno">الفصل 120</div>
+                        <i class="fas fa-star rate"><span class="srate" id="chapterrate">9.1</span></i>
+                        <div class="overallmangaya responsive">
+                            <div class="row">
+                                <div class="row col-12" style="height:60%;"></div>
+                                @*    <button class="btn  btn-danger editbtn">Edit</button>*@
+                                <button class="btn  btn-danger deletebtn ReviewChapter" onclick="ReviewChapter(this)">View Chapter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+        <script src="~/scripts/bootstrap.min.js"></script>
+        <script src="~/scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/scripts/bootstrap.bundle.js"></script>
+        <script src="~/scripts/bootstrap.bundle.min.js"></script>
+        <script src="~/scripts/bootstrap.js"></script>
+      <script>
+          /*
+    Carousel
+*/
+          $('#carousel-example').on('slide.bs.carousel', function (e) {
+              /*
+                  CC 2.0 License Iatek LLC 2018 - Attribution required
+              */
+              var $e = $(e.relatedTarget);
+              var idx = $e.index();
+              var itemsPerSlide = 5;
+              var totalItems = $('.carousel-item').length;
+
+              if (idx >= totalItems - (itemsPerSlide - 1)) {
+                  var it = itemsPerSlide - (totalItems - idx);
+                  for (var i = 0; i < it; i++) {
+                      // append slides to end
+                      if (e.direction == "left") {
+                          $('.carousel-item').eq(i).appendTo('.carousel-inner');
+                      }
+                      else {
+                          $('.carousel-item').eq(0).appendTo('.carousel-inner');
+                      }
+                  }
+              }
+          });
+
+
+
+        </script>
+</body>
+</html>

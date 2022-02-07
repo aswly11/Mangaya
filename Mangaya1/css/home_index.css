@@ -1,0 +1,291 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+.nvbar {
+    height: 150px;
+    background-image: url(https://media.alienwarearena.com/media/Anime-Wallpaper-5TL.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 13, 88, 0.57);
+    padding: 0;
+    margin: 0;
+}
+
+.searchtxt {
+    border-radius: 19px;
+    /* width: 91%; */
+    background-color: rgba(0,0,0,0.8);
+    text-align: right;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    padding: 8px 3%;
+    border-width: 0;
+    font-family: cursive;
+}
+
+.searchcon {
+    margin: 36px 5%;
+    height: 41px;
+}
+
+.btnsearch {
+    border-width: 0;
+    border-radius: 19px;
+    color: rgba(0,0,0,0.8);
+    position: absolute;
+    left: 9%;
+    top: 44px;
+    width: 56px;
+    font-size: medium;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.logoeng, .logoarb {
+    color: white;
+    font-size: xx-large;
+    font-family: serif;
+    text-align: center;
+    margin-top: 26px;
+}
+
+.logoarb {
+    margin-top: 0;
+}
+
+.l2 {
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    right: 33px;
+    top: 0;
+    z-index: 16;
+    height: 150px;
+    width: 165px;
+}
+
+.links {
+    color: #babcd8 !important;
+    font-weight: bold;
+    font-family: cursive;
+    font-size: x-large;
+    background-color: rgba(0,0,0,0.7);
+    width: 20%;
+    margin: -10px 0 -10px 6px;
+    /* border-right: white solid 2px; */
+    /* border-left: white solid 2px; */
+    /* border-radius: 28px; */
+    /* margin-left: 1%; */
+    /*  background-color: rgba(34, 28, 121, 0.7);*/
+    /*  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(9,105,121,0.8) 100%);*/
+}
+    .links a {
+        color: #babcd8 !important;
+    }
+
+    .linkscontainer {
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-top: 19px !important;
+        text-align: center !important;
+        margin-bottom: 14px !important;
+    }
+
+.last1 {
+    margin-left: 0 .5% !important;
+}
+
+.login_registration_btn {
+    background-color: rgba(34, 28, 121, 0.7);
+    color: white;
+    font-family: cursive;
+    font-size: large;
+    margin-bottom: 12px;
+    height: 37px;
+    margin-top: -28px;
+}
+
+.registration {
+    background-color: rgba(121, 28, 28, 0.7);
+}
+
+.btncontaner {
+    padding-left: 7%;
+}
+
+/*********** carusel ***********/
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Show 4th slide on md if col-md-4*/
+    .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -33.3333%; /*change this with javascript in the future*/
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    /* Show 3rd slide on sm if col-sm-6*/
+    .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -50%; /*change this with javascript in the future*/
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+}
+
+@media (min-width: 576px) {
+    .carousel-item {
+        margin-right: 0;
+    }
+    /* show 2 items */
+    .carousel-inner .active + .carousel-item {
+        display: block;
+    }
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
+        transition: none;
+    }
+
+    .carousel-inner .carousel-item-next {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+    }
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    /* farthest right hidden item must be also positioned for animations */
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+}
+/* MD */
+@media (min-width: 768px) {
+    /* show 3rd of 3 item slide */
+    .carousel-inner .active + .carousel-item + .carousel-item {
+        display: block;
+    }
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+        transition: none;
+    }
+
+    .carousel-inner .carousel-item-next {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+    }
+    /* left or forward direction */
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    /* right or prev direction */
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+}
+/* LG */
+@media (min-width: 991px) {
+    /* show 4th item */
+    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+        display: block;
+    }
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+        transition: none;
+    }
+    /* Show 5th slide on lg if col-lg-3 */
+    .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -25%; /*change this with javascript in the future*/
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    /* left or forward direction */
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    /* right or prev direction //t - previous slide direction last item animation fix */
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+}
+.img-fluid {
+   min-width: 100%;
+    height: 350px;
+}
+.top-content {
+    margin-top: 50px;
+
+}
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 9%;
+    color: #fff;
+    text-align: center;
+    opacity: 1;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    /* display: inline-block; */
+    width: 75px;
+    height: 75px;
+    /* background: no-repeat 50%/100% 100%; */
+}

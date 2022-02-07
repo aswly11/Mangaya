@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-reboot.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+    @RenderBody()
+
+
+
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/scripts/bootstrap.bundle.js"></script>
+    <script src="~/scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.5.1/jquery.nicescroll.min.js"></script>
+
+    <script>
+        $("body").niceScroll({ cursorwidth: '10px', cursorcolor: '#2f2d2566' });
+        $('.overall').niceScroll({ cursorwidth: '10px', cursorcolor: '#2f2d2566' });
+        $(".massengercontainer").niceScroll({ cursorwidth: '10px', cursorcolor: '#2f2d2566' });
+        $(".contactcontainer").niceScroll({ cursorwidth: '10px', cursorcolor: '#2f2d2566' });
+        $("body").getNiceScroll().show();
+        $(".overall").getNiceScroll().show();
+        $("body").attr('tabeindex', '0');
+        $('.overall').attr('tabeindex', '0');
+     
+    </script>
+</body>
+</html>
